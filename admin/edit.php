@@ -74,6 +74,30 @@ include("header.php");
                         value="<?php echo $row_akun["tgl_pengembalian"]; ?>" required>
                 </div>
 
+
+                <div class="mt-2">
+                    <label for="statusbarang" class="form-label text-index">Status Barang:</label>
+                    <select name="statusbarang" id="statusbarang" class="form-control">
+
+                        <option value="sewa" <?php if ($row_akun["status_barang"] == "sewa") {
+                            echo "selected";
+                        } ?>>Sewa
+                        </option>
+
+                        <option value="belum ambil" <?php if ($row_akun["status_barang"] == "belum ambil") {
+                            echo "selected";
+                        } ?>>Belum Ambil
+                        </option>
+
+                        <option value="kosong" <?php if ($row_akun["status_barang"] == "kosong") {
+                            echo "selected";
+                        } ?>>Kosong
+                        </option>
+
+                    </select>
+                </div>
+
+
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
 
                 <button type="submit" class="button-custom color-blue mt-4 mb-3">Simpan</button>

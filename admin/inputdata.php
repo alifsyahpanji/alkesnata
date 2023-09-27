@@ -15,7 +15,7 @@ $tglkembali = $_POST["tglkembali"];
 
 include("env.php");
 
-$sql_input = "INSERT INTO member (telepon, nama, alamat, barang, tgl_peminjaman, tgl_pengembalian) VALUES ('$telepon', '$nama', '$alamat', '$barang', '$tglpinjam', '$tglkembali')";
+$sql_input = "INSERT INTO member (telepon, nama, alamat, barang, tgl_peminjaman, tgl_pengembalian, status_barang) VALUES ('$telepon', '$nama', '$alamat', '$barang', '$tglpinjam', '$tglkembali', 'sewa')";
 $run_input = mysqli_query($conn, $sql_input);
 
 ?>
