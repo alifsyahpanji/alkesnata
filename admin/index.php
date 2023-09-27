@@ -53,7 +53,7 @@ include("header.php");
                 Silahkan gunakan fitur pencarian untuk menemukan data pelanggan atau input pelanggan baru.
             </div>
 
-            <form action="pencarian.php" method="post">
+            <form action="pencarian.php" method="get">
                 <div class="mt-4">
                     <label for="telepon" class="form-label text-index">Telepon:</label>
                     <input type="number" class="form-control" id="telepon" name="telepon" placeholder="085701768496"
@@ -61,8 +61,7 @@ include("header.php");
                 </div>
 
                 <button type="submit" class="button-custom color-blue mt-4 mb-4"><img
-                        src="../assets/image/search-white.png" class="icon-menu" alt="search"><span
-                        class="ms-3">Cari</span></button>
+                        src="../assets/image/search-white.png" class="icon-menu" alt="search"></button>
             </form>
 
         </div>

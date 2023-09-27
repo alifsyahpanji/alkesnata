@@ -5,7 +5,7 @@ if ($_SESSION['pass'] == "") {
     die();
 }
 
-$telepon = $_POST["telepon"];
+$telepon = $_GET["telepon"];
 
 include("env.php");
 
@@ -103,12 +103,12 @@ include("header.php");
 
                     <div class="mt-3">
                         <label for="tglpinjam" class="form-label text-index">Tgl Peminjaman:</label>
-                        <input type="date" class="form-control" id="tglpinjam" name="tglpinjam">
+                        <input type="date" class="form-control" id="tglpinjam" name="tglpinjam" required>
                     </div>
 
                     <div class="mt-3">
                         <label for="tglkembali" class="form-label text-index">Tgl Pengembalian:</label>
-                        <input type="date" class="form-control" id="tglkembali" name="tglkembali">
+                        <input type="date" class="form-control" id="tglkembali" name="tglkembali" required>
                     </div>
 
                     <button type="submit" class="button-custom color-blue mt-4 mb-3">Simpan</button>
