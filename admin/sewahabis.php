@@ -6,9 +6,11 @@ if ($_SESSION['pass'] == "") {
 }
 
 include("env.php");
+include("tglformat.php");
+include("fiturwa.php");
+include("lokaldate.php");
 
-date_default_timezone_set("Asia/Jakarta");
-$tgl_ini = date("Y-m-d");
+
 
 $batas = 2;
 $halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
@@ -66,17 +68,19 @@ include("header.php");
                         <?php echo $row_akun["barang"]; ?>
                     </div>
                     <div class="mt-4">Tgl Peminjaman:
-                        <?php echo $row_akun["tgl_peminjaman"]; ?>
+                        <?php echo tgl($row_akun["tgl_peminjaman"]); ?>
                     </div>
                     <div>Tgl Pengembalian:
-                        <?php echo $row_akun["tgl_pengembalian"]; ?>
+                        <?php echo tgl($row_akun["tgl_pengembalian"]); ?>
                     </div>
                     <div class="mt-4">Status Barang:
                         <?php echo $row_akun["status_barang"]; ?>
                     </div>
 
-                    <div class="mt-4"><a href="edit.php?id=<?php echo $row_akun["id"]; ?>"><button
-                                class="button-custom color-orange">Edit</button></a></div>
+                    <?php
+                    include("buttonmenu.php");
+                    ?>
+
                 </div>
                 <?php
             }
@@ -89,6 +93,9 @@ include("header.php");
     include("backtop.php");
     ?>
 
+    <?php
+    include("confirm.php");
+    ?>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 

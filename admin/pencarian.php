@@ -8,6 +8,9 @@ if ($_SESSION['pass'] == "") {
 $telepon = $_GET["telepon"];
 
 include("env.php");
+include("tglformat.php");
+include("fiturwa.php");
+include("lokaldate.php");
 
 $sql_get_data = "SELECT * FROM member WHERE telepon = '$telepon' ";
 $data = mysqli_query($conn, $sql_get_data);
@@ -56,17 +59,21 @@ include("header.php");
                         <?php echo $row_akun["barang"]; ?>
                     </div>
                     <div class="mt-4">Tgl Peminjaman:
-                        <?php echo $row_akun["tgl_peminjaman"]; ?>
+                        <?php echo tgl($row_akun["tgl_peminjaman"]); ?>
                     </div>
                     <div>Tgl Pengembalian:
-                        <?php echo $row_akun["tgl_pengembalian"]; ?>
+                        <?php echo tgl($row_akun["tgl_pengembalian"]); ?>
                     </div>
                     <div class="mt-4">Status Barang:
                         <?php echo $row_akun["status_barang"]; ?>
                     </div>
 
-                    <div class="mt-4"><a href="edit.php?id=<?php echo $row_akun["id"]; ?>"><button
-                                class="button-custom color-orange">Edit</button></a></div>
+
+                    <?php
+                    include("buttonmenu.php");
+                    ?>
+
+
                 </div>
                 <?php
             }
@@ -125,6 +132,9 @@ include("header.php");
         <div class="mt-4 mb-4"></div>
     </div>
 
+    <?php
+    include("confirm.php");
+    ?>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 

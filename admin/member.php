@@ -6,6 +6,7 @@ if ($_SESSION['pass'] == "") {
 }
 
 include("env.php");
+include("tglformat.php");
 
 $batas = 2;
 $halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
@@ -66,10 +67,10 @@ include("header.php");
                         <?php echo $row_akun["barang"]; ?>
                     </div>
                     <div class="mt-4">Tgl Peminjaman:
-                        <?php echo $row_akun["tgl_peminjaman"]; ?>
+                        <?php echo tgl($row_akun["tgl_peminjaman"]); ?>
                     </div>
                     <div>Tgl Pengembalian:
-                        <?php echo $row_akun["tgl_pengembalian"]; ?>
+                        <?php echo tgl($row_akun["tgl_pengembalian"]); ?>
                     </div>
                     <div class="mt-4">Status Barang:
                         <?php echo $row_akun["status_barang"]; ?>

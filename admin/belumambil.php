@@ -12,7 +12,6 @@ include("lokaldate.php");
 
 
 
-
 $batas = 2;
 $halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
 $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
@@ -20,12 +19,12 @@ $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 $previous = $halaman - 1;
 $next = $halaman + 1;
 
-$sql_get_data = "SELECT id FROM member WHERE tgl_pengembalian > '$tgl_ini' AND status_barang = 'sewa' ";
+$sql_get_data = "SELECT id FROM member WHERE status_barang = 'belum ambil' ";
 $data = mysqli_query($conn, $sql_get_data);
 $jumlah_data = mysqli_num_rows($data);
 $total_halaman = ceil($jumlah_data / $batas);
 
-$data_member = mysqli_query($conn, "SELECT * FROM member WHERE tgl_pengembalian > '$tgl_ini' AND status_barang = 'sewa' ORDER BY tgl_peminjaman DESC LIMIT $halaman_awal, $batas");
+$data_member = mysqli_query($conn, "SELECT * FROM member WHERE status_barang = 'belum ambil' ORDER BY tgl_pengembalian DESC LIMIT $halaman_awal, $batas");
 
 ?>
 
@@ -43,7 +42,7 @@ include("header.php");
     <div class="container-margin">
 
         <div class="cart-container cart-container-margin">
-            <div class="text-index">Ini adalah data pelanggan anda yang sedang sewa, total ada
+            <div class="text-index">Ini adalah data pelanggan anda yang barang sewanya belum di ambil, total ada
                 <?php echo $jumlah_data; ?> member
             </div>
         </div>
@@ -94,6 +93,9 @@ include("header.php");
     include("backtop.php");
     ?>
 
+    <?php
+    include("confirm.php");
+    ?>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
