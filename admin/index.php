@@ -56,8 +56,8 @@ include("header.php");
             <form action="pencarian.php" method="get">
                 <div class="mt-4">
                     <label for="telepon" class="form-label text-index">Telepon:</label>
-                    <input type="number" class="form-control" id="telepon" name="telepon" placeholder="085701768496"
-                        required>
+                    <input type="text" class="form-control" id="telepon" name="telepon" placeholder="085701768496"
+                        onchange="nomorWa();" required>
                 </div>
 
                 <button type="submit" class="button-custom color-blue mt-4 mb-4"><img
@@ -70,6 +70,7 @@ include("header.php");
 
     </div>
 
+    <?php include("nomorwa.php"); ?>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
