@@ -12,7 +12,7 @@ include("lokaldate.php");
 
 
 
-$batas = 2;
+$batas = 50;
 $halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
 $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 

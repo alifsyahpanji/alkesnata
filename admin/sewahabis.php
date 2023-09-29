@@ -12,7 +12,7 @@ include("lokaldate.php");
 
 
 
-$batas = 2;
+$batas = 50;
 $halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
 $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 
@@ -24,7 +24,7 @@ $data = mysqli_query($conn, $sql_get_data);
 $jumlah_data = mysqli_num_rows($data);
 $total_halaman = ceil($jumlah_data / $batas);
 
-$data_member = mysqli_query($conn, "SELECT * FROM member WHERE tgl_pengembalian < '$tgl_ini' AND status_barang = 'sewa' ORDER BY tgl_peminjaman DESC LIMIT $halaman_awal, $batas");
+$data_member = mysqli_query($conn, "SELECT * FROM member WHERE tgl_pengembalian < '$tgl_ini' AND status_barang = 'sewa' ORDER BY tgl_pengembalian DESC LIMIT $halaman_awal, $batas");
 
 ?>
 
